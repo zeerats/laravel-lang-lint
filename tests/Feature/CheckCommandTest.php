@@ -49,7 +49,7 @@ it('scans only the given paths', function (): void {
 });
 
 it('discovers every locale that is not ignored', function (): void {
-    config()->set('translation-checker.ignore_locales', []);
+    config()->set('lang-lint.ignore_locales', []);
 
     $this->artisan('lang:check --path=resources/views')
         ->expectsTable(['Key', 'Missing in'], [
@@ -95,7 +95,7 @@ it('reports a language directory without locales', function (): void {
 });
 
 it('reports an invalid configuration', function (): void {
-    config()->set('translation-checker.assume_used', ['(unclosed']);
+    config()->set('lang-lint.assume_used', ['(unclosed']);
 
     $this->artisan('lang:check')
         ->expectsOutputToContain('The [assume_used] option contains an invalid regular expression: (unclosed')

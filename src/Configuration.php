@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace Zeerats\TranslationChecker;
+namespace Zeerats\LangLint;
 
 use InvalidArgumentException;
 

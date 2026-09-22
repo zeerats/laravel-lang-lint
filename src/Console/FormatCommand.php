@@ -2,9 +2,9 @@
 
 declare(strict_types=1);
 
-namespace Zeerats\TranslationChecker\Console;
+namespace Zeerats\LangLint\Console;
 
-final class FormatCommand extends TranslationCommand
+final class FormatCommand extends LintCommand
 {
     protected $signature = 'lang:format
         {--path=* : Directory to scan for used keys when pruning, relative to the base path}
@@ -18,7 +18,7 @@ final class FormatCommand extends TranslationCommand
     {
         $check = (bool) $this->option('check');
 
-        $files = $this->checker()->format(prune: (bool) $this->option('prune'), write: ! $check);
+        $files = $this->linter()->format(prune: (bool) $this->option('prune'), write: ! $check);
 
         if ($files === []) {
             $this->components->info('Every language file is formatted.');

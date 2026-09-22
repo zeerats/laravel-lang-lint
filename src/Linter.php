@@ -2,18 +2,18 @@
 
 declare(strict_types=1);
 
-namespace Zeerats\TranslationChecker;
+namespace Zeerats\LangLint;
 
 use Illuminate\Support\Arr;
 use RuntimeException;
-use Zeerats\TranslationChecker\Lang\LangDirectory;
-use Zeerats\TranslationChecker\Lang\PhpArrayWriter;
-use Zeerats\TranslationChecker\Lang\TranslationFile;
-use Zeerats\TranslationChecker\Results\MissingKey;
-use Zeerats\TranslationChecker\Results\UnusedKey;
-use Zeerats\TranslationChecker\Scanning\KeyExtractor;
+use Zeerats\LangLint\Lang\LangDirectory;
+use Zeerats\LangLint\Lang\PhpArrayWriter;
+use Zeerats\LangLint\Lang\TranslationFile;
+use Zeerats\LangLint\Results\MissingKey;
+use Zeerats\LangLint\Results\UnusedKey;
+use Zeerats\LangLint\Scanning\KeyExtractor;
 
-final readonly class TranslationChecker
+final readonly class Linter
 {
     private KeyExtractor $extractor;
 

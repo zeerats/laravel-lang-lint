@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-use Zeerats\TranslationChecker\Tests\TestCase;
+use Zeerats\LangLint\Tests\TestCase;
 
 it('reports keys that the source code does not use', function (): void {
     $this->useFixture();
@@ -24,7 +24,7 @@ it('passes when every key is used', function (): void {
         ->expectsOutputToContain('Found 3 unused translation keys.')
         ->assertFailed();
 
-    config()->set('translation-checker.assume_used', ['/^validation\./', '/^messages\.unused/']);
+    config()->set('lang-lint.assume_used', ['/^validation\./', '/^messages\.unused/']);
 
     $this->artisan('lang:unused --locale=en')
         ->expectsOutputToContain('Every translation key in the language files is used in the source code.')

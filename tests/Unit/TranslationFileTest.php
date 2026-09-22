@@ -3,8 +3,8 @@
 declare(strict_types=1);
 
 use UnexpectedValueException;
-use Zeerats\TranslationChecker\Lang\TranslationFile;
-use Zeerats\TranslationChecker\Tests\TestCase;
+use Zeerats\LangLint\Lang\TranslationFile;
+use Zeerats\LangLint\Tests\TestCase;
 
 function translationFile(array $lines): TranslationFile
 {
@@ -21,7 +21,7 @@ it('loads a language file', function (): void {
 });
 
 it('rejects a file that does not return an array', function (): void {
-    $path = sys_get_temp_dir() . '/translation-checker-' . bin2hex(random_bytes(6)) . '.php';
+    $path = sys_get_temp_dir() . '/lang-lint-' . bin2hex(random_bytes(6)) . '.php';
     file_put_contents($path, '<?php return "text";');
 
     try {

@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace Zeerats\TranslationChecker\Results;
+namespace Zeerats\LangLint\Results;
 
 final readonly class UnusedKey
 {

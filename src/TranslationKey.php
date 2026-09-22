@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace Zeerats\TranslationChecker;
+namespace Zeerats\LangLint;
 
 /**
  * A key that Laravel resolves from a PHP language file, such as

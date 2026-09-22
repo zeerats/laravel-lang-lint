@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-use Zeerats\TranslationChecker\TranslationKey;
+use Zeerats\LangLint\TranslationKey;
 
 it('parses keys that a PHP language file resolves', function (string $key, string $group, string $item): void {
     $translationKey = TranslationKey::tryFrom($key);

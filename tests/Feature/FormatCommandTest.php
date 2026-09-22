@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-use Zeerats\TranslationChecker\Tests\TestCase;
+use Zeerats\LangLint\Tests\TestCase;
 
 it('reports unformatted files with --check without writing them', function (): void {
     $path = $this->useFixtureCopy();

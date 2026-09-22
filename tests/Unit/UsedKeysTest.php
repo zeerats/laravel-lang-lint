@@ -2,8 +2,8 @@
 
 declare(strict_types=1);
 
-use Zeerats\TranslationChecker\Scanning\Location;
-use Zeerats\TranslationChecker\Scanning\UsedKeys;
+use Zeerats\LangLint\Scanning\Location;
+use Zeerats\LangLint\Scanning\UsedKeys;
 
 it('covers a key when it or one of its parents is used', function (): void {
     $keys = new UsedKeys([

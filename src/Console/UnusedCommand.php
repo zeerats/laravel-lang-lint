@@ -2,11 +2,11 @@
 
 declare(strict_types=1);
 
-namespace Zeerats\TranslationChecker\Console;
+namespace Zeerats\LangLint\Console;
 
-use Zeerats\TranslationChecker\Results\UnusedKey;
+use Zeerats\LangLint\Results\UnusedKey;
 
-final class UnusedCommand extends TranslationCommand
+final class UnusedCommand extends LintCommand
 {
     protected $signature = 'lang:unused
         {--path=* : Directory to scan instead of the configured paths, relative to the base path}
@@ -17,8 +17,8 @@ final class UnusedCommand extends TranslationCommand
 
     protected function process(): int
     {
-        $checker = $this->checker();
-        $unused = $checker->unused();
+        $linter = $this->linter();
+        $unused = $linter->unused();
 
         if ($unused === []) {
             $this->components->info('Every translation key in the language files is used in the source code.');
@@ -40,7 +40,7 @@ final class UnusedCommand extends TranslationCommand
             return self::FAILURE;
         }
 
-        $files = $checker->prune($unused);
+        $files = $linter->prune($unused);
 
         $this->components->info(sprintf(
             'Removed %s from %s.',

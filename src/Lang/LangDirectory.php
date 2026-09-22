@@ -2,11 +2,11 @@
 
 declare(strict_types=1);
 
-namespace Zeerats\TranslationChecker\Lang;
+namespace Zeerats\LangLint\Lang;
 
 use InvalidArgumentException;
 use Symfony\Component\Finder\Finder;
-use Zeerats\TranslationChecker\Configuration;
+use Zeerats\LangLint\Configuration;
 
 /**
  * The application's language directory: one subdirectory per locale holding

@@ -2,11 +2,11 @@
 
 declare(strict_types=1);
 
-namespace Zeerats\TranslationChecker\Tests;
+namespace Zeerats\LangLint\Tests;
 
 use Illuminate\Filesystem\Filesystem;
 use Orchestra\Testbench\TestCase as Orchestra;
-use Zeerats\TranslationChecker\TranslationCheckerServiceProvider;
+use Zeerats\LangLint\LangLintServiceProvider;
 
 abstract class TestCase extends Orchestra
 {
@@ -18,13 +18,13 @@ abstract class TestCase extends Orchestra
     protected function getPackageProviders($app): array
     {
         return [
-            TranslationCheckerServiceProvider::class,
+            LangLintServiceProvider::class,
         ];
     }
 
     protected function defineEnvironment($app): void
     {
-        $app['config']->set('translation-checker.ignore_locales', ['/^[a-z]{2}-[A-Z]{2}$/']);
+        $app['config']->set('lang-lint.ignore_locales', ['/^[a-z]{2}-[A-Z]{2}$/']);
     }
 
     protected function tearDown(): void
@@ -84,7 +84,7 @@ abstract class TestCase extends Orchestra
      */
     private function temporaryDirectory(): string
     {
-        $path = sys_get_temp_dir() . '/translation-checker-' . bin2hex(random_bytes(6));
+        $path = sys_get_temp_dir() . '/lang-lint-' . bin2hex(random_bytes(6));
 
         $this->temporaryDirectories[] = $path;
 

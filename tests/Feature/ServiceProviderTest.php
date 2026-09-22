@@ -4,13 +4,13 @@ declare(strict_types=1);
 
 use Illuminate\Support\Facades\Artisan;
 use Illuminate\Support\ServiceProvider;
-use Zeerats\TranslationChecker\Configuration;
-use Zeerats\TranslationChecker\TranslationCheckerServiceProvider;
+use Zeerats\LangLint\Configuration;
+use Zeerats\LangLint\LangLintServiceProvider;
 
 it('merges the default configuration', function (): void {
-    expect(config('translation-checker.paths'))->toBe(['app', 'resources/views'])
-        ->and(config('translation-checker.functions'))->toContain('__', 'trans_choice', '@lang')
-        ->and(config('translation-checker.assume_used'))->toContain('/^validation\./');
+    expect(config('lang-lint.paths'))->toBe(['app', 'resources/views'])
+        ->and(config('lang-lint.functions'))->toContain('__', 'trans_choice', '@lang')
+        ->and(config('lang-lint.assume_used'))->toContain('/^validation\./');
 });
 
 it('registers the commands', function (): void {
@@ -18,15 +18,15 @@ it('registers the commands', function (): void {
 });
 
 it('publishes the configuration file', function (): void {
-    $paths = ServiceProvider::pathsToPublish(TranslationCheckerServiceProvider::class, 'translation-checker-config');
+    $paths = ServiceProvider::pathsToPublish(LangLintServiceProvider::class, 'lang-lint-config');
 
     expect($paths)->toHaveCount(1)
-        ->and(array_values($paths)[0])->toBe(config_path('translation-checker.php'));
+        ->and(array_values($paths)[0])->toBe(config_path('lang-lint.php'));
 });
 
 it('resolves the configuration from the application', function (): void {
     $this->useFixture();
-    config()->set('translation-checker.paths', ['app']);
+    config()->set('lang-lint.paths', ['app']);
 
     $configuration = app(Configuration::class);
 

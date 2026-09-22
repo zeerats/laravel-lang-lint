@@ -3,7 +3,7 @@
 declare(strict_types=1);
 
 use InvalidArgumentException;
-use Zeerats\TranslationChecker\Configuration;
+use Zeerats\LangLint\Configuration;
 
 function configuration(array $overrides = []): Configuration
 {

@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace Zeerats\TranslationChecker\Scanning;
+namespace Zeerats\LangLint\Scanning;
 
 use Stringable;
 

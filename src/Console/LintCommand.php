@@ -2,16 +2,16 @@
 
 declare(strict_types=1);
 
-namespace Zeerats\TranslationChecker\Console;
+namespace Zeerats\LangLint\Console;
 
 use Illuminate\Console\Command;
 use Illuminate\Support\Str;
 use InvalidArgumentException;
 use UnexpectedValueException;
-use Zeerats\TranslationChecker\Configuration;
-use Zeerats\TranslationChecker\TranslationChecker;
+use Zeerats\LangLint\Configuration;
+use Zeerats\LangLint\Linter;
 
-abstract class TranslationCommand extends Command
+abstract class LintCommand extends Command
 {
     /**
      * Run the command, reporting invalid options, configuration and language files as a plain error.
@@ -30,9 +30,9 @@ abstract class TranslationCommand extends Command
     abstract protected function process(): int;
 
     /**
-     * A checker for the configured application, narrowed by the --path and --locale options.
+     * A linter for the configured application, narrowed by the --path and --locale options.
      */
-    protected function checker(): TranslationChecker
+    protected function linter(): Linter
     {
         $configuration = $this->laravel->make(Configuration::class);
 
@@ -47,7 +47,7 @@ abstract class TranslationCommand extends Command
             $configuration = $configuration->withLocales($locales);
         }
 
-        return new TranslationChecker($configuration);
+        return new Linter($configuration);
     }
 
     protected static function pluralize(int $count, string $noun): string

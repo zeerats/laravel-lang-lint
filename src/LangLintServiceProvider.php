@@ -2,24 +2,24 @@
 
 declare(strict_types=1);
 
-namespace Zeerats\TranslationChecker;
+namespace Zeerats\LangLint;
 
 use Illuminate\Contracts\Config\Repository;
 use Illuminate\Contracts\Foundation\Application;
 use Illuminate\Support\ServiceProvider;
-use Zeerats\TranslationChecker\Console\CheckCommand;
-use Zeerats\TranslationChecker\Console\FormatCommand;
-use Zeerats\TranslationChecker\Console\UnusedCommand;
+use Zeerats\LangLint\Console\CheckCommand;
+use Zeerats\LangLint\Console\FormatCommand;
+use Zeerats\LangLint\Console\UnusedCommand;
 
-final class TranslationCheckerServiceProvider extends ServiceProvider
+final class LangLintServiceProvider extends ServiceProvider
 {
     public function register(): void
     {
-        $this->mergeConfigFrom(__DIR__ . '/../config/translation-checker.php', 'translation-checker');
+        $this->mergeConfigFrom(__DIR__ . '/../config/lang-lint.php', 'lang-lint');
 
         $this->app->bind(Configuration::class, static function (Application $app): Configuration {
             /** @var array<string, mixed> $config */
-            $config = $app->make(Repository::class)->get('translation-checker', []);
+            $config = $app->make(Repository::class)->get('lang-lint', []);
 
             return Configuration::fromArray($config, $app->basePath(), $app->langPath());
         });
@@ -32,8 +32,8 @@ final class TranslationCheckerServiceProvider extends ServiceProvider
         }
 
         $this->publishes([
-            __DIR__ . '/../config/translation-checker.php' => $this->app->configPath('translation-checker.php'),
-        ], ['translation-checker', 'translation-checker-config']);
+            __DIR__ . '/../config/lang-lint.php' => $this->app->configPath('lang-lint.php'),
+        ], ['lang-lint', 'lang-lint-config']);
 
         $this->commands([
             CheckCommand::class,

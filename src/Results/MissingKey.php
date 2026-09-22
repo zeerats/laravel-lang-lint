@@ -2,9 +2,9 @@
 
 declare(strict_types=1);
 
-namespace Zeerats\TranslationChecker\Results;
+namespace Zeerats\LangLint\Results;
 
-use Zeerats\TranslationChecker\Scanning\Location;
+use Zeerats\LangLint\Scanning\Location;
 
 final readonly class MissingKey
 {

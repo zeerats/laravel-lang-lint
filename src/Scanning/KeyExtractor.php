@@ -2,11 +2,11 @@
 
 declare(strict_types=1);
 
-namespace Zeerats\TranslationChecker\Scanning;
+namespace Zeerats\LangLint\Scanning;
 
 use InvalidArgumentException;
 use Symfony\Component\Finder\Finder;
-use Zeerats\TranslationChecker\Configuration;
+use Zeerats\LangLint\Configuration;
 
 /**
  * Finds translation keys passed as string literals to the configured functions.

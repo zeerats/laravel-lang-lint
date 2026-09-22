@@ -1,8 +1,8 @@
-# Laravel Translation Checker
+# Laravel Lang Lint
 
-[![Latest version on Packagist](https://img.shields.io/packagist/v/zeerats/laravel-translation-checker.svg)](https://packagist.org/packages/zeerats/laravel-translation-checker)
-[![Tests](https://img.shields.io/github/actions/workflow/status/zeerats/laravel-translation-checker/tests.yml?branch=main&label=tests)](https://github.com/zeerats/laravel-translation-checker/actions/workflows/tests.yml)
-[![License](https://img.shields.io/packagist/l/zeerats/laravel-translation-checker.svg)](LICENSE.md)
+[![Latest version on Packagist](https://img.shields.io/packagist/v/zeerats/laravel-lang-lint.svg)](https://packagist.org/packages/zeerats/laravel-lang-lint)
+[![Tests](https://img.shields.io/github/actions/workflow/status/zeerats/laravel-lang-lint/tests.yml?branch=main&label=tests)](https://github.com/zeerats/laravel-lang-lint/actions/workflows/tests.yml)
+[![License](https://img.shields.io/packagist/l/zeerats/laravel-lang-lint.svg)](LICENSE.md)
 
 Artisan commands that keep PHP language files in sync with the code that uses them.
 
@@ -24,13 +24,13 @@ Invalid options or configuration, such as a locale without a directory, produce 
 ## Installation
 
 ```bash
-composer require --dev zeerats/laravel-translation-checker
+composer require --dev zeerats/laravel-lang-lint
 ```
 
 Publish the configuration file when the defaults do not fit your project:
 
 ```bash
-php artisan vendor:publish --tag=translation-checker-config
+php artisan vendor:publish --tag=lang-lint-config
 ```
 
 ## Usage
@@ -91,7 +91,7 @@ php artisan lang:format --prune
 
 ## Configuration
 
-`config/translation-checker.php`:
+`config/lang-lint.php`:
 
 ```php
 return [

@@ -2,11 +2,11 @@
 
 declare(strict_types=1);
 
-namespace Zeerats\TranslationChecker\Console;
+namespace Zeerats\LangLint\Console;
 
-use Zeerats\TranslationChecker\Scanning\Location;
+use Zeerats\LangLint\Scanning\Location;
 
-final class CheckCommand extends TranslationCommand
+final class CheckCommand extends LintCommand
 {
     protected $signature = 'lang:check
         {--path=* : Directory to scan instead of the configured paths, relative to the base path}
@@ -17,9 +17,9 @@ final class CheckCommand extends TranslationCommand
 
     protected function process(): int
     {
-        $checker = $this->checker();
-        $locales = $checker->locales();
-        $missing = $checker->missing();
+        $linter = $this->linter();
+        $locales = $linter->locales();
+        $missing = $linter->missing();
 
         if ($missing === []) {
             $this->components->info(sprintf(

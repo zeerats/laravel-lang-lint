@@ -3,7 +3,7 @@
 declare(strict_types=1);
 
 use UnexpectedValueException;
-use Zeerats\TranslationChecker\Lang\PhpArrayWriter;
+use Zeerats\LangLint\Lang\PhpArrayWriter;
 
 it('renders an empty file', function (): void {
     expect((new PhpArrayWriter)->render([]))->toBe("<?php\n\nreturn [];\n");
@@ -55,7 +55,7 @@ it('renders nested lines in the canonical style', function (): void {
 
         FILE);
 
-    $path = sys_get_temp_dir() . '/translation-checker-' . bin2hex(random_bytes(6)) . '.php';
+    $path = sys_get_temp_dir() . '/lang-lint-' . bin2hex(random_bytes(6)) . '.php';
     file_put_contents($path, $rendered);
 
     try {

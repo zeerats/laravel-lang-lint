@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace Zeerats\TranslationChecker\Lang;
+namespace Zeerats\LangLint\Lang;
 
 use UnexpectedValueException;
 

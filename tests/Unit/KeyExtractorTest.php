@@ -2,9 +2,9 @@
 
 declare(strict_types=1);
 
-use Zeerats\TranslationChecker\Configuration;
-use Zeerats\TranslationChecker\Scanning\KeyExtractor;
-use Zeerats\TranslationChecker\Tests\TestCase;
+use Zeerats\LangLint\Configuration;
+use Zeerats\LangLint\Scanning\KeyExtractor;
+use Zeerats\LangLint\Tests\TestCase;
 
 function extractor(array $paths, array $functions = ['__', 'trans', 'trans_choice', '@lang', '@choice', 'Lang::get', 'Lang::has', 'Lang::choice']): KeyExtractor
 {
@@ -60,7 +60,7 @@ it('only recognises the configured functions', function (): void {
 });
 
 it('unescapes string literals', function (): void {
-    $path = sys_get_temp_dir() . '/translation-checker-' . bin2hex(random_bytes(6));
+    $path = sys_get_temp_dir() . '/lang-lint-' . bin2hex(random_bytes(6));
     mkdir($path);
     file_put_contents($path . '/escapes.php', <<<'PHP_SOURCE'
         <?php

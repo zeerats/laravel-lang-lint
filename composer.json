@@ -1,16 +1,17 @@
 {
     "$schema": "https://getcomposer.org/schema.json",
-    "name": "zeerats/laravel-translation-checker",
-    "description": "Artisan commands that find missing and unused translation keys in Laravel language files and keep those files formatted.",
+    "name": "zeerats/laravel-lang-lint",
+    "description": "Artisan commands that lint Laravel language files: missing keys, unused keys and consistent formatting.",
     "keywords": [
         "laravel",
         "translations",
         "localization",
         "i18n",
         "lang",
+        "lint",
         "artisan"
     ],
-    "homepage": "https://github.com/zeerats/laravel-translation-checker",
+    "homepage": "https://github.com/zeerats/laravel-lang-lint",
     "license": "MIT",
     "authors": [
         {
@@ -36,12 +37,12 @@
     },
     "autoload": {
         "psr-4": {
-            "Zeerats\\TranslationChecker\\": "src/"
+            "Zeerats\\LangLint\\": "src/"
         }
     },
     "autoload-dev": {
         "psr-4": {
-            "Zeerats\\TranslationChecker\\Tests\\": "tests/"
+            "Zeerats\\LangLint\\Tests\\": "tests/"
         }
     },
     "scripts": {
@@ -60,7 +61,7 @@
     "extra": {
         "laravel": {
             "providers": [
-                "Zeerats\\TranslationChecker\\TranslationCheckerServiceProvider"
+                "Zeerats\\LangLint\\LangLintServiceProvider"
             ]
         }
     },
